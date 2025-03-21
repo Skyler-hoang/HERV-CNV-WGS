@@ -54,7 +54,7 @@ for BAM_FILE in "$INPUT_DIR"/*.bam; do
     if [ -f "$BAM_FILE" ]; then
         COUNTER=$((COUNTER + 1))
         FILENAME=$(basename "$BAM_FILE")
-        OUTPUT_BAM="$OUTPUT_DIR/${FILENAME%.bam}.hg38.bam"
+        OUTPUT_BAM="$OUTPUT_DIR/${FILENAME%.bam}.hg38"
         
         log_message "[$COUNTER/$BAM_COUNT] Converting: $FILENAME"
         log_message "Output will be: $(basename "$OUTPUT_BAM")"
