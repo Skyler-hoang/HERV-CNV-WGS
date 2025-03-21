@@ -5,7 +5,7 @@
 # Date: March 21, 2025
 
 # Define paths
-INPUT_DIR="/mnt/pan/SOM_EPBI_SKI/PHONOLOGY/Retrotransposons/hg19_bams"
+INPUT_DIR="/mnt/pan/SOM_EPBI_SKI/PHONOLOGY/Retrotransposons/hg19_bams/temp_placeholder"
 OUTPUT_DIR="/mnt/pan/SOM_EPBI_SKI/PHONOLOGY/Retrotransposons/retro_analysis/output/hg38_bams"
 CHAIN_FILE="/home/hhh38/herv_analysis/reference/hg19ToHg38.over.chain"
 
@@ -19,10 +19,13 @@ mkdir -p "$OUTPUT_DIR"
 
 
 THREADS=$(nproc)
-MEMORY=32
+MEMORY=64
 
 
 module load bzip2
+module load CrossMap
+module load Python/3.9.5-GCCcore-10.3.0
+
 # Log file
 LOG_FILE="$OUTPUT_DIR/conversion_log_$(date +%Y%m%d_%H%M%S).log"
 
