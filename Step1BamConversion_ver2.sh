@@ -17,6 +17,11 @@ mkdir -p "$OUTPUT_DIR"
 # module load crossmap
 # module load samtools
 
+
+THREADS=$(nproc)
+MEMORY=32
+
+
 module load bzip2
 # Log file
 LOG_FILE="$OUTPUT_DIR/conversion_log_$(date +%Y%m%d_%H%M%S).log"
