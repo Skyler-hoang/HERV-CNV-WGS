@@ -3,6 +3,9 @@
 #SBATCH --mem=128G               # Increase memory (64GB instead of 1GB)
 #SBATCH --time=48:00:00         # Increase time limit if need
 
+#uncomment this if using wgs data from 1KG
+#samtools view -b -T ref.fa -o output_bam.bam input_cram.cram
+
 
 samtools collate -Oun128 /mnt/pan/SOM_EPBI_SKI/PHONOLOGY/Retrotransposons/hg19_bams/temp_placeholder/CB80_P00050018A.bam | samtools fastq -OT RG,BC - \
   | /home/hhh38/bwa/bwa mem -pt8 -CH <(samtools view -H /mnt/pan/SOM_EPBI_SKI/PHONOLOGY/Retrotransposons/hg19_bams/temp_placeholder/CB80_P00050018A.bam|grep ^@RG) /mnt/pan/SOM_EPBI_SKI/PHONOLOGY/Retrotransposons/retro_analysis/reference/hg38/hg38.fa - \
